@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To start this project in local PC, clone repo, install CRA, then install react-apexcharts, apexcharts, axios using comand: npm install --save react-apexcharts, apexcharts, axios
+
 ## Available Scripts
 
 In the project directory, you can run:

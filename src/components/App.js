@@ -16,7 +16,6 @@ class App extends React.Component {
     this.state = {
       data: '',
       norm: 12459,
-
       sorting: {
         name: 'asc',
         time: 'asc',
@@ -78,7 +77,6 @@ class App extends React.Component {
   countWorkTime = (time) => {
     let hours = ((time - time % hour) / hour).toFixed(),
       minutes;
-
     if (
       (time - time % hour) > 59
       || (time - time % hour) < hour
@@ -87,7 +85,6 @@ class App extends React.Component {
     }
 
     let str = hours + '.' + minutes;
-
     return (
       <Bar time={str} />
     )
@@ -96,7 +93,6 @@ class App extends React.Component {
   //подсчёт отклонения отработанного времени от среднего в процентах
   differentFromNorm = (time) => {
     let percentDifferent = ( (time * 100) / this.state.norm).toFixed() - 100;
-    
     return (
       <HorizontalBar time={percentDifferent} />
     )
