@@ -48,15 +48,12 @@ class App extends React.Component {
       case 'name':
         sortType = sorting.name === 'asc' ? 'desc' : 'asc';
         break;
-
       case 'time':
         sortType = sorting.time === 'asc' ? 'desc' : 'asc';
         break;
-
       case 'different':
         sortType = sorting.different === 'asc' ? 'desc' : 'asc';
         break;
-    
       default:
         break;
     };
@@ -70,7 +67,6 @@ class App extends React.Component {
       data: sortedData,
       sorting: sortParam
     });
-    // console.log(sortField, sortedData, sortType);
   }
 
   //перевод рабочего времени в вид ЧЧ ММ
