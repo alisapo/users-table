@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 
+import HorizontalBar from './horizontalBar.js';
 import Bar from './Bar.js';
 
 import '../App.css';
@@ -89,6 +90,15 @@ class App extends React.Component {
 
     return (
       <Bar time={str} />
+    )
+  }
+
+  //подсчёт отклонения отработанного времени от среднего в процентах
+  differentFromNorm = (time) => {
+    let percentDifferent = ( (time * 100) / this.state.norm).toFixed() - 100;
+    
+    return (
+      <HorizontalBar time={percentDifferent} />
     )
   }
 
