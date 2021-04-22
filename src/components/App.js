@@ -35,6 +35,42 @@ class App extends React.Component {
       });
   }
 
+  //сотировка по столбцам "ФИО", "время активной работы", "отклонение от среднего"
+  onSort = sortField => {
+    const { sorting } = this.state,
+      cloneData = this.state.data.concat();
+    let sortType, sortParam = {};
+
+    //переключение направления сортировки: asc/desc
+    switch (sortField) {
+      case 'name':
+        sortType = sorting.name === 'asc' ? 'desc' : 'asc';
+        break;
+
+      case 'time':
+        sortType = sorting.time === 'asc' ? 'desc' : 'asc';
+        break;
+
+      case 'different':
+        sortType = sorting.different === 'asc' ? 'desc' : 'asc';
+        break;
+    
+      default:
+        break;
+    };
+
+    const sortedData = _.orderBy(cloneData, sortField, sortType);
+    sortParam = {
+      ...sorting,
+      [sortField]: sortType
+    }
+    this.setState({
+      data: sortedData,
+      sorting: sortParam
+    });
+    // console.log(sortField, sortedData, sortType);
+  }
+
   //визуальное отображение направления сортировки в столбце
   arrowRotate = (param) => {
     return (
