@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 
-import HorizontalBar from './horizontalBar.js';
+import HorizontalBar from './HorizontalBar.js';
 import Bar from './Bar.js';
 
 import '../App.css';
@@ -118,23 +118,22 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <header className="app-header"></header>
         <section>
           <table>
             <thead>
               <tr>
                 <th>№</th>
-                <th onClick={this.onSort.bind(null, 'name')}>
-                  ФИО
+                <th className="sorting-fields" onClick={this.onSort.bind(null, 'name')}>
+                  <div className="table-header">ФИО</div>
                   {this.arrowRotate(this.state.sorting.name)}
                 </th>
-                <th>Логин</th>
-                <th onClick={this.onSort.bind(null, 'time')}>
-                  Время активной работы
+                <th className="table-header">Логин</th>
+                <th className="sorting-fields" onClick={this.onSort.bind(null, 'time')}>
+                  <div className="table-header">Время активной работы</div>
                   {this.arrowRotate(this.state.sorting.time)}
                 </th>
-                <th onClick={this.onSort.bind(null, 'different')}>
-                  Отклонение от среднего
+                <th className="sorting-fields" onClick={this.onSort.bind(null, 'different')}>
+                  <div className="table-header">Отклонение от среднего</div>
                   {this.arrowRotate(this.state.sorting.different)}
                 </th>
               </tr>
