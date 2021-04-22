@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 
+import Bar from './Bar.js';
+
 import '../App.css';
 
 const hour = 3600, minute = 60;
@@ -69,6 +71,25 @@ class App extends React.Component {
       sorting: sortParam
     });
     // console.log(sortField, sortedData, sortType);
+  }
+
+  //перевод рабочего времени в вид ЧЧ ММ
+  countWorkTime = (time) => {
+    let hours = ((time - time % hour) / hour).toFixed(),
+      minutes;
+
+    if (
+      (time - time % hour) > 59
+      || (time - time % hour) < hour
+      ) {
+        minutes = ((time % hour) / minute).toFixed();
+    }
+
+    let str = hours + '.' + minutes;
+
+    return (
+      <Bar time={str} />
+    )
   }
 
   //визуальное отображение направления сортировки в столбце
